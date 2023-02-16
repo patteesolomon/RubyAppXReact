@@ -1,0 +1,2 @@
+class Sjc < ApplicationRecord
+end

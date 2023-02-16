@@ -1,0 +1,2 @@
+class SjcController < ApplicationController
+end
