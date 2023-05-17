@@ -1,0 +1,43 @@
+<h1>New User</h1>
+
+<%= form_with model: @User do |form| %>
+  <div>
+    <%= form.label :us %><br>
+    <%= form.text_field :us %>
+    <%= @user.errors.full_messages_for(:username).each do |message|%>
+    <div>
+      <%= message %>
+    </div>
+    <%end%>
+  </div>
+
+  <div>
+    <%= form.label :ps %><br>
+    <%= form.text_field :ps %> <br>
+    <% @user.errors.full_messages_for(:ps).each do |message| %>
+    <div><%= message %></div>
+    <%end%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<form action="/users" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="...">
+
+  <div>
+    <label for="username">UserName</label><br>
+    <input type="text" name="user[us]" id="us">
+  </div>
+
+  <div>
+    <label for="password">Password</label><br>
+    <input type="text" name="user[ps]" id="ps">
+  </div>
+
+  <div>
+    <input type="submit" name="commit" value="Create User" data-disable-with="Create User">
+  </div>
+</form>
